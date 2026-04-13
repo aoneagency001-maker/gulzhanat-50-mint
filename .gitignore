@@ -1,0 +1,12 @@
+# Ignore all flowers except used ones
+assets/flowers/*
+!assets/flowers/sakura_33.png
+!assets/flowers/sakura_37.png
+!assets/flowers/sakura_39.png
+!assets/flowers/sakura_52.png
+!assets/flowers/sakura_53.png
+!assets/flowers/roses_1.png
+!assets/flowers/roses_2.png
+!assets/flowers/roses_corner.png
+.DS_Store
+.claude/
