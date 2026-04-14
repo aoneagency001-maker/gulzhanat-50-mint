@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Гүлжанат | 50 жас — Мерей Той</title>
-  <meta property="og:title" content="Гүлжанат — 50 жас, Мерей Той">
+  <title>Гульжанат | 50 жас — Мерей Той</title>
+  <meta property="og:title" content="Гульжанат — 50 жас, Мерей Той">
   <meta property="og:description" content="Сіздерді мерейлі 50 жас тойымыздың куәсі болуға шақырамыз! 22 мамыр, 2026 ж.">
   <meta property="og:image" content="assets/og-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Гүлжанат — 50 жас, Мерей Той">
+  <meta name="twitter:title" content="Гульжанат — 50 жас, Мерей Той">
   <meta name="twitter:description" content="Сіздерді мерейлі 50 жас тойымыздың куәсі болуға шақырамыз!">
   <meta name="twitter:image" content="assets/og-preview.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -249,11 +249,11 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
   font-family:var(--font-display);font-weight:600;font-style:italic;
   font-size:clamp(54px,14vw,90px);line-height:1.05;margin-bottom:10px;
   z-index:2;position:relative;
-  background:linear-gradient(110deg,var(--gold-dark) 0%,var(--gold) 30%,var(--gold-light) 48%,var(--gold) 54%,var(--gold-dark) 75%,var(--gold) 100%);
+  background:linear-gradient(110deg,#B8860B 0%,#FFD700 25%,#FFF8DC 48%,#FFD700 54%,#DAA520 75%,#FFD700 100%);
   background-size:250% auto;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:transparent;
-  text-shadow:none;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.4)) drop-shadow(0 2px 4px rgba(0,0,0,.2));
   animation:fadeUp 1s .8s ease-out forwards,shimmer 3.5s 2.5s var(--ease-enter) infinite;
   opacity:0;
 }
@@ -261,9 +261,13 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
 
 .hero-age{
   font-family:var(--font-accent);font-size:44px;font-weight:700;
-  color:var(--gold-light);letter-spacing:10px;z-index:2;position:relative;
-  opacity:0;animation:fadeUp .8s 1.1s ease-out forwards;
-  text-shadow:0 2px 12px rgba(0,0,0,.2);
+  letter-spacing:10px;z-index:2;position:relative;
+  background:linear-gradient(110deg,#B8860B 0%,#FFD700 25%,#FFF8DC 48%,#FFD700 54%,#DAA520 75%,#FFD700 100%);
+  background-size:250% auto;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.35)) drop-shadow(0 2px 6px rgba(0,0,0,.15));
+  opacity:0;animation:fadeUp .8s 1.1s ease-out forwards,shimmer 3.5s 3s var(--ease-enter) infinite;
 }
 .hero-ornament{margin-top:28px;z-index:2;position:relative;opacity:0;animation:fadeUp .8s 1.4s ease-out forwards}
 .hero-ornament img{width:130px;height:auto;filter:brightness(0) invert(1) opacity(.3)}
@@ -344,7 +348,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
 #form-status.error{color:#C62828}
 
 /* ===== FOOTER ===== */
-.footer{text-align:center;padding:40px 28px 100px;background:linear-gradient(180deg,var(--cream),#1F5C50);color:var(--white)}
+.footer{text-align:center;padding:40px 28px 100px;background:url('assets/footer-bg.jpeg') center/cover no-repeat;color:var(--white)}
 .footer-name{font-family:var(--font-display);font-size:34px;font-weight:600;font-style:italic;color:var(--gold-light);margin-bottom:12px}
 .footer-text{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,1);line-height:1.8}
 .footer-text a{color:var(--gold-light);text-decoration:none}
@@ -399,7 +403,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     <div class="env-flap"></div>
     <div class="env-body"></div>
     <div class="env-card">
-      <div class="env-card-name">Гүлжанат</div>
+      <div class="env-card-name">Гульжанат</div>
       <div class="env-card-sub">МЕРЕЙ ТОЙ</div>
     </div>
   </div>
@@ -442,7 +446,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     <div class="hero-corner hero-corner--bl"></div>
     <div class="hero-corner hero-corner--br"></div>
     <p class="hero-label">МЕРЕЙ ТОЙ</p>
-    <h1 class="hero-name">Гүлжанат</h1>
+    <h1 class="hero-name">Гульжанат</h1>
     <p class="hero-age"><span style="font-size:1.6em">50</span> ЖАС</p>
     <div class="hero-ornament"><img src="assets/ornament1.png" alt=""></div>
     <div class="hero-scroll"><span>scroll</span><div class="scroll-arrow"></div></div>
@@ -541,10 +545,10 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
   <!-- FOOTER -->
   <footer class="footer">
     <div class="ornament-kz" style="margin-bottom:16px"><img src="assets/ornament1.png" alt="" style="filter:brightness(0) invert(1) opacity(.2)"></div>
-    <p class="footer-name">Гүлжанат</p>
+    <p class="footer-name">Гульжанат</p>
     <p class="footer-text">
-      <span data-lang="kz">Құрметпен, Гүлжанат және отбасы</span>
-      <span data-lang="ru">С уважением, Гүлжанат и семья</span>
+      <span data-lang="kz">Құрметпен, Гульжанат және отбасы</span>
+      <span data-lang="ru">С уважением, Гульжанат и семья</span>
       <br><br>
       <a href="tel:+77713100155">+7 771 310 0155</a>
       <br>
