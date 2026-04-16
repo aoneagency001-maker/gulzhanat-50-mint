@@ -677,7 +677,7 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
 
 /* ===== RSVP ===== */
 (function(){
-  var BOT_TOKEN='7714384282:AAGgzbZO5k1Nm_dd0FFueWVUs75_WKcws2A',CHAT_ID='1111426811';
+  var BOT_TOKEN='7714384282:AAGgzbZO5k1Nm_dd0FFueWVUs75_WKcws2A',CHAT_IDS=['1111426811','280192618'];
   var form=document.getElementById('rsvp-form'),status=document.getElementById('form-status');
   form.addEventListener('submit',function(e){
     e.preventDefault();status.textContent='';status.className='';
@@ -688,11 +688,12 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     var emoji=attendance==='yes'?'✅':'❌',
         st=attendance==='yes'?'Қатысамын / Приду':'Қатыса алмаймын / Не смогу',
         msg=emoji+' Жаңа жауап!\n\n👤 Аты: '+name+'\n📋 Жауабы: '+st;
-    var fd=new FormData();fd.append('chat_id',CHAT_ID);fd.append('text',msg);
-    fetch('https://api.telegram.org/bot'+BOT_TOKEN+'/sendMessage',{method:'POST',body:fd})
-    .then(function(r){return r.json()})
-    .then(function(d){
-      if(d.ok){status.textContent=isRu?'Спасибо, '+name+'! Ответ принят!':'Рахмет, '+name+'! Жауабыңыз қабылданды!';status.className='success';form.reset()}
+    Promise.all(CHAT_IDS.map(function(id){
+      var fd=new FormData();fd.append('chat_id',id);fd.append('text',msg);
+      return fetch('https://api.telegram.org/bot'+BOT_TOKEN+'/sendMessage',{method:'POST',body:fd}).then(function(r){return r.json()});
+    }))
+    .then(function(results){
+      if(results[0].ok){status.textContent=isRu?'Спасибо, '+name+'! Ответ принят!':'Рахмет, '+name+'! Жауабыңыз қабылданды!';status.className='success';form.reset()}
       else{status.textContent=isRu?'Ошибка. Попробуйте снова.':'Қате орын алды.';status.className='error'}
     })
     .catch(function(){status.textContent=isRu?'Ошибка. Попробуйте снова.':'Қате орын алды.';status.className='error'});
