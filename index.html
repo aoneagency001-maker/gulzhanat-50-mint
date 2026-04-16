@@ -688,12 +688,14 @@ body.lang-ru [data-lang="kz"]{display:none!important;font-size:0;width:0;height:
     var emoji=attendance==='yes'?'✅':'❌',
         st=attendance==='yes'?'Қатысамын / Приду':'Қатыса алмаймын / Не смогу',
         msg=emoji+' Жаңа жауап!\n\n👤 Аты: '+name+'\n📋 Жауабы: '+st;
-    if(BOT_TOKEN!=='YOUR_BOT_TOKEN'&&CHAT_ID!=='YOUR_CHAT_ID'){
-      fetch('https://api.telegram.org/bot'+BOT_TOKEN+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CHAT_ID,text:msg})})
-      .then(function(r){if(!r.ok)throw 0;return r.json()})
-      .then(function(){status.textContent=isRu?'Спасибо, '+name+'! Ответ принят!':'Рахмет, '+name+'! Жауабыңыз қабылданды!';status.className='success';form.reset()})
-      .catch(function(){status.textContent=isRu?'Ошибка. Попробуйте снова.':'Қате орын алды.';status.className='error'});
-    }else{console.log('RSVP:',msg);status.textContent=isRu?'Спасибо, '+name+'!':'Рахмет, '+name+'!';status.className='success';form.reset()}
+    var fd=new FormData();fd.append('chat_id',CHAT_ID);fd.append('text',msg);
+    fetch('https://api.telegram.org/bot'+BOT_TOKEN+'/sendMessage',{method:'POST',body:fd})
+    .then(function(r){return r.json()})
+    .then(function(d){
+      if(d.ok){status.textContent=isRu?'Спасибо, '+name+'! Ответ принят!':'Рахмет, '+name+'! Жауабыңыз қабылданды!';status.className='success';form.reset()}
+      else{status.textContent=isRu?'Ошибка. Попробуйте снова.':'Қате орын алды.';status.className='error'}
+    })
+    .catch(function(){status.textContent=isRu?'Ошибка. Попробуйте снова.':'Қате орын алды.';status.className='error'});
   });
 })();
 </script>
